@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# wrapper for simplenote
+
+$HOME/.app/Simplenote-linux-1.2.1-x64/simplenote $*

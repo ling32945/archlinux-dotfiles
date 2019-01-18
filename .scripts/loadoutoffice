@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# WORK IN PROGRESS
+# load apps for offilcie use
+#
+# ws10: neomutt, firefox
+# ws9:  wechat
+
+i3-msg -q "workspace 10"
+i3-msg -q "exec --no-startup-id $TERMIANL -e neomutt"
+i3-msg -q "exec --no-startup-id $CORPBROWSER"
+i3-msg -q "workspace 9"
+i3-msg -q "exec --no-startup-id .app/electronic-wechat-linux-x64/electronic-wechat"
+

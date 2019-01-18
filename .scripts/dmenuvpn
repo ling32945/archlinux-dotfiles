@@ -1,0 +1,27 @@
+#!/bin/sh
+# Gives a dmenu prompt to (dis)connect VPN
+# `nmcli` required
+pgrep -x dmenu && exit
+
+connection=$(printf "`nmcli connection | grep vpn | sed -e 's/\-\-/DISCONNECTED/;s/\s.*vpn\s\+/ [/;s/\s*$/]/;s/[a-z]\+[a-z0-9]\+[0-9]\+/CONNECTED/'`" | dmenu -i -p "Select VPN connection to operate: ")
+
+vpnname=$(echo $connection | cut -d ' ' -f 1)
+uuid=$(nmcli connection | grep "$vpnname" | awk '{ print $2 }')
+vpnstatus=$(echo $connection | sed -e 's/.*\[\([A-Z]\+\)\].*/\1/')
+
+#echo "$vpnname $uuid $vpnstatus"
+
+if [ "$vpnstatus" == "CONNECTED" ]; then
+    msg="Disconnect VPN $vpnname, currently $vpnstatus"
+    cmd="nmcli connection down $uuid"
+elif [ "$vpnstatus" == "DISCONNECTED" ]; then
+    msg="Connect VPN $vpnname, currently $vpnstatus"
+    cmd="nmcli connection up $uuid"
+else
+    msg="Wrong VPN status: $vpnstatus"
+    exit
+fi
+
+#echo "$msg $cmd"
+
+[ "$(printf "No\\nYes" | dmenu -i -p "$msg" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $cmd

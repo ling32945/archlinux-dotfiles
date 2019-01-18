@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# rsyncback
+#
+# temp backup
+
+diskuuid="514255b3-6a61-4846-a66e-41e673db4c0e"
+mp="/mnt/usb"
+volname="encrypted"
+bkppath="$mp/backup/$(hostname)"
+exclude="--exclude .mail --exclude .cache"
+options="--dry-run --archive"
+options="--verbose --archive --delete"
+
+#set -xv
+
+device=`sudo blkid | grep -i "$diskuuid" | awk -F: '{ print $1 }'`
+[ ! -z "$device" ] && sudo cryptsetup luksOpen $device $volname && sudo mount /dev/mapper/$volname $mp || exit 1
+echo "$0: Mount backup volume $diskuuid to $mp"
+
+#sudo test ! -d $bkppath && sudo mkdir $bkppath || exit 2
+
+echo "$0: Start backup"
+sudo rsync $options $exclude /home $bkppath
+
+sudo umount $mp && sudo cryptsetup close $volname || exit 1
+echo "$0: Unmount backup volume $diskuuid from $mp, quit..."
+
+exit 0

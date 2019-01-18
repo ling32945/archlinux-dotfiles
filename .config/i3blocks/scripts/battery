@@ -1,0 +1,43 @@
+#!/bin/bash
+
+ICON_CHARGING=""
+ICON_EMPTY=""
+ICON_FULL=""
+ICON_HALF=""
+ICON_QUARTER=""
+ICON_THREE_QUARTER=""
+
+NUM=`cat /sys/class/power_supply/BAT0/capacity` || exit 0
+STATUS=`cat /sys/class/power_supply/BAT0/status`
+
+color="#00FF00"
+
+if [ "$NUM" -ge 100 ]; then
+    icon=${ICON_FULL}
+elif [ "$NUM" -ge 75 ]; then
+    icon=${ICON_THREE_QUARTER}
+elif [ "$NUM" -ge 50 ]; then
+    icon=${ICON_HALF}
+elif [ "$NUM" -ge 25 ]; then
+	color="#FFAE00"
+    icon=${ICON_QUARTE}
+else
+	color="#FF0000"
+    icon=${ICON_EMPTY}
+fi
+
+
+if [ "$STATUS" = "Charging" ]; then
+    #color="#FFF"
+    color="#00FF00"
+    echo "<span color='$color'>${ICON_CHARGING} ${NUM}</span>"
+elif [ "$STATUS" = "Discharging" ]; then
+    echo "<span color='$color'>${icon} ${NUM}</span>"
+elif [ "$STATUS" = "Full" ]; then
+    echo "<span color='#00FF00'>${ICON_FULL} ${NUM}</span>"
+elif [ "$STATUS" = "Unknown" ]; then
+    echo "<span color='#FF0000'>⚠ ${NUM}</span>"
+fi
+
+#echo "<span color='$color'>`sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/❓/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g" <<<"$STATUS"` `sed -e 's/$/%/' <<<"$NUM"`</span>"
+

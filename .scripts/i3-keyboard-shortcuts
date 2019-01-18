@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# i3 keyboard shortcut
+
+[ -z "$1" ] && exit
+
+function get_ws {
+    echo $(grep '^set $ws' ~/.config/i3/config | grep "$1 " | cut -d '"' -f 2)
+}
+
+function current_ws {
+    echo $(i3-msg -t get_workspaces | jq '.[] | select(.focused == true) | .name' | tr -d '"')
+}
+function current_output {
+    echo $(i3-msg -t get_outputs | jq ".[] | select(.current_workspace == \"$1\") | .name" | tr -d '"')
+}
+
+function get_instances {
+    # $1 output, $2 ws, $3 instance name
+    echo $(i3-msg -t get_tree | jq ".nodes | .[] | select(.name == \"$1\") | .nodes | .[] | select(.type == \"con\") | .nodes | .[] | select(.name == \"$2\") | .nodes | .[].window_properties | select(.instance == \"$3\") | .instance" | tr -d '"')
+}
+
+function get_instances_urxvt {
+    # $1 output, $2 ws, $3 instance name
+    echo $(i3-msg -t get_tree | jq ".nodes | .[] | select(.name == \"$1\") | .nodes | .[] | select(.type == \"con\") | .nodes | .[] | select(.name == \"$2\") | .nodes | .[].nodes | .[].window_properties | select(.instance == \"$3\") | .instance" | tr -d '"')
+}
+
+function get_instances_with_title {
+    # $1 output, $2 ws, $3 instance name, $4 title
+    echo $(i3-msg -t get_tree | jq ".nodes | .[] | select(.name == \"$1\") | .nodes | .[] | select(.type == \"con\") | .nodes | .[] | select(.name == \"$2\") | .nodes | .[].window_properties | select(.instance == \"$3\") | select(.title == \"$4\") | .title" | tr -d '"')
+
+}
+
+set -xv
+
+case $1 in
+    terminal)
+        # shortcut Mod4-1
+        i3-msg workspace "$(get_ws 1)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws $TERMINAL)
+        if [ -z $instances ]; then
+            $TERMINAL &
+        fi
+        ;;
+    chromium)
+        # shortcut Mod4-2
+        i3-msg workspace "$(get_ws 2)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws $CORPBROWSER)
+        if [ -z $instances ]; then
+            $CORPBROWSER &
+        fi
+        ;;
+    firefox)
+        # shortcut Mod4-3
+        i3-msg workspace "$(get_ws 3)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws 'Navigator')
+        if [ -z $instances ]; then
+            $TRUEBROWSER &
+        fi
+        ;;
+    neomutt)
+        # shortcut Mod4-4
+        i3-msg workspace "$(get_ws 4)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances_with_title $output $ws $TERMINAL 'neomutt')
+        if [ -z $instances ]; then
+            $TERMINAL -e neomutt -F .config/mutt/muttrc &
+        fi
+        ;;
+    ranger)
+        # shortcut Mod4-5
+        i3-msg workspace "$(get_ws 5)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances_with_title $output $ws $TERMINAL 'ranger')
+        if [ -z $instances ]; then
+            $TERMINAL -e ranger &
+        fi
+        ;;
+#    qutebrowser)
+#        # shortcut Mod4-9
+#        i3-msg workspace "$(get_ws 9)"
+#        ws=$(current_ws)
+#        output=$(current_output $ws)
+#        instances=$(get_instances $output $ws $TRUEBROWSER)
+#        if [ -z $instances ]; then
+#            $TRUEBROWSER &
+#        fi
+#        ;;
+    *)
+        ;;
+esac

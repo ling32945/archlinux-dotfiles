@@ -1,0 +1,5 @@
+#!/bin/sh
+# This script install packages for pacman
+# and write the package names to .config/packages
+echo "$*" >> $HOME/.config/common-packages
+sudo pacman -S $*

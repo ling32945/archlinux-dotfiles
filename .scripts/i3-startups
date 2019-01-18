@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# i3 startups for Virtualbox on Macbook Pro
+
+case $HW in
+    vbox-mbp)
+        echo "VirtualBox in Macbook Pro"
+        VBoxClient-all
+        ;;
+    mbp)
+        echo "Macbook Pro"
+        # set internal monitor resolution
+        xrandr --dpi 112 --output LVDS1
+        xrdb -merge ~/Code/idf/.xresources-mbp-2012
+        # Compsite manager
+        compton &
+        ;;
+    x220|t520)
+        echo "ThinkPad X220"
+        # Compsite manager
+        compton &
+        ;;
+    general|*)
+        echo "VirtualBox in Macbook Pro"
+        # Compsite manager
+        compton &
+        ;;
+esac

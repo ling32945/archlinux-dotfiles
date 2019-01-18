@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# screenshot tool
+
+choice="sc"
+[ ! -z "$1" ] && choice="$1"
+
+screenshotdir="$HOME/Pictures/screenshots"
+filename="$(date +%Y%m%d-%H%M%s)_selection.png"
+selectfile="$screenshotdir/$filename"
+
+case "$choice" in
+    sc)
+        scrot -z -s "/tmp/$filename"
+        copyq write "image/png" - < "/tmp/$filename"
+        rm -f "/tmp/$filename"
+        ;;
+	sf)
+        scrot -z -s "$selectfile"
+        ;;
+	fc)
+        maim -i $(xdotool getactivewindow) | copyq write image/png -
+        ;;
+	ff)
+        scrot -z -u "$screenshotdir/%Y%m%d-%H%M%s_window.png"
+        ;;
+	*)
+        cat << EOF
+$(basename $0): screenshot tool
+save folder: $screenshotdir
+
+Allowed options:
+  sc    copy selected screen to clipboard
+  sf    save selected screen to folder with timestamp
+  fc    copy focused window to clipboard
+  ff    save focused screen to folder with timestamp
+EOF
+        ;;
+esac
+

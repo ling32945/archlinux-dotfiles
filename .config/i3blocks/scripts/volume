@@ -1,0 +1,34 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+	1) setsid "$TERMINAL" -e pulsemixer & ;;
+	3) pulsemixer --toggle-mute ;;
+	4) pulsemixer --change-volume +5 ;;
+	5) pulsemixer --change-volume -5 ;;
+esac
+
+# colorful icon
+#icon_mute="🔇"
+#icon_low_volume="🔈"
+#icon_medium_volume="🔉"
+#icon_high_volume="🔊"
+
+# black-white icon
+icon_mute=""
+icon_low_volume=""
+icon_medium_volume=""
+icon_high_volume=""
+
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "${icon_mute}\\n" && exit
+
+vol=$(pulsemixer --get-volume | awk '{print $1}')
+
+if [ "$vol" -gt "70" ]; then
+	icon=${icon_high_volume}
+elif [ "$vol" -gt "30" ]; then
+	icon=${icon_medium_volume}
+else
+	icon=${icon_low_volume}
+fi
+
+printf "%s %s%%\\n" "$icon" "$vol"

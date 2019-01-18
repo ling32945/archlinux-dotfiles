@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# start nutstore daemon
+
+ps -ef | grep java | grep .nutstore/dist && exit
+
+nohup $HOME/.nutstore/dist/bin/nutstore-pydaemon.py 2>&1 > /dev/null &

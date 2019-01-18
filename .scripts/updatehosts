@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# v1 - 2018-10-28
+# Ian Chen
+
+# Run this script to merge /etc/hosts with online AD blocking list
+# Require password less sudo privileges
+
+URL="http://winhelp2002.mvps.org/hosts.zip"
+TARGET="/tmp/hosts.zip"
+SYSHOSTS="$HOME/.config/hosts"
+TMPHOSTS="/tmp/hosts"
+
+wget -q -O $TARGET "$URL" && unzip -d /tmp -o -q "$TARGET" HOSTS
+
+cp $SYSHOSTS $TMPHOSTS
+grep -v '127.0.0.1' /tmp/HOSTS | grep -v ^# | grep -v '^::1' >> $TMPHOSTS
+
+sudo cp $TMPHOSTS /etc/hosts
+
+rm -f $TARGET /tmp/HOSTS $TMPHOSTS

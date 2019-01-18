@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# wrapper for wpp
+
+$HOME/.app/wps-office_10.1.0.6757_x86_64/wpp "$1"

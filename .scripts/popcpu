@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "mpstat -P ALL"
+echo
+
+mpstat -P ALL
+
+read -r

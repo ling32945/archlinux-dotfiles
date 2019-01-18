@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# sync clock
+# sudo required
+
+sudo ntpclient -s -h asia.pool.ntp.org
+

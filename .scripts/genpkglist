@@ -1,0 +1,8 @@
+#!/bin/sh
+# generate pacman package list from packages
+
+packages="$HOME/Code/idf/.config/packages/common-packages"
+
+[ ! -z '$1' ] && packages="$1"
+
+grep -v '^#' $packages | sed 's/#.*$//' | tr '\n' ' '

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ "$BLOCK_BUTTON" = "1" ] && $TERMINAL -e popcalendar
+#[ "$BLOCK_BUTTON" = "1" ] && $TERMINAL -e chinese-calendar 
+
+#FORMAT="${BLOCK_INSTANCE:-%H:%M}"
+FORMAT="${BLOCK_INSTANCE:-%x %A %k:%M}"
+DATETIME=$(date "+${FORMAT}")
+
+echo "${DATETIME}"
+echo "${DATETIME}"
+echo ""

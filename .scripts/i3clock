@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# i3blocks clock module.
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e sudo ntpclient -s -h asia.pool.ntp.org ;;
+esac
+
+echo $(date '+%Y-%m-%d %a 🕓 %k:%M')

@@ -1,0 +1,4 @@
+#!/bin/sh
+# wrapper for demnu
+pgrep -x dmenu && exit
+dmenu_run -nb "$color0" -nf "$color7" -sb "$color4" -sf "$color0" -fn "Hack:11" $*

@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Copyright 2019 Jae Liu <jae.liu11@gmail.com>
+
+[ "$BLOCK_BUTTON" = "1" ] && setsid $TERMINAL -e popcpu
+
+IDLE=(`mpstat 1 5 | tail -1 | awk '{print $12}'`) # Get the CPU idle statistics.
+CPU=$(echo "scale=1;(100-$IDLE)*100/100" | bc -l)
+
+color="#FFFFFF"
+if [ $(echo "$CPU<50"|bc) -eq 1 ]; then
+    color="#00FF00" ## green
+elif [ $(echo "$CPU<75"|bc) -eq 1 ]; then
+    color="#FFFF00" ## yello
+elif [ $(echo "$CPU<95"|bc) -eq 1 ]; then
+    color="#FF0000" ## red
+else
+	color="##A020F0" ## purple
+fi
+
+echo "<span color='$color'>${CPU}%</span>"
+echo "<span color='$color'>${CPU}%</span>"
+echo ""

@@ -1,0 +1,94 @@
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=5
+markup=pango
+
+[cpu_usage]
+# https://unicode.org/emoji/charts/full-emoji-list.html#1f525
+label=🔥
+interval=10
+min_width=CPU: 100.00%
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
+
+[memory]
+# https://unicode.org/emoji/charts/full-emoji-list.html#1f4bf
+label=💿
+interval=60
+
+[disk]
+# https://unicode.org/emoji/charts/full-emoji-list.html#1f4be
+label=💾
+interval=60
+
+#[news]
+#command=cat ~/.newsup
+#interval=once
+#signal=6
+
+#[record]
+#command=cat ~/.recordingicon
+#interval=once
+#signal=9
+
+[mpd]
+label=🎼
+command=i3mpd
+interval=once
+signal=11
+
+[pacman]
+label=📦
+command=i3pacman
+interval=once
+signal=8
+
+#[torrents]
+#command=i3torrent
+#interval=20
+#signal=7
+
+[weather]
+command=i3weather
+interval=3600
+
+[mail]
+# https://unicode.org/emoji/charts/full-emoji-list.html#1f4ec
+label=📬
+#label=📬
+command=i3mail
+interval=180
+signal=12
+
+[volume]
+interval=once
+command=i3volume
+signal=10
+
+#[volume]
+#interval=60
+
+[iface]
+label=🌐
+instance=eth0
+#ip link | grep ' UP ' | cut -d ' ' -f 2 | cut -d: -f1
+interval=10
+
+[screenbrightness]
+command=i3screenbrightness
+interval=600
+#signal=20
+
+[battery]
+command=i3battery
+interval=5
+
+[time]
+label=📅
+command=i3clock
+interval=5
+
+#[wifi]
+#command=i3wifi
+#instance=wlp3s0
+#interval=10

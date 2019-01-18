@@ -1,0 +1,244 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+#command=/usr/lib/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+#separator_block_width=15
+separator_block_width=5
+#markup=none
+markup=pango
+
+# Part 1
+
+[volume]
+#label=
+#interval=5
+interval=once
+signal=10
+
+[bandwidth]
+instance=enp0s25;in
+label=
+interval=1
+
+[bandwidth]
+instance=enp0s25;out
+label=
+interval=1
+
+# Part 2
+
+#[bluetooth]
+#label=
+#interval=10
+
+[brightness]
+label=
+interval=5
+
+#[countdown]
+#instance=tomorrow 05:00:00
+#label=
+#interval=1
+
+# Part 3
+
+[cpu]
+label=
+interval=2
+
+[memory]
+#label=
+label=
+instance=mem;custom
+interval=30
+
+[load]
+label=
+interval=10
+
+[battery]
+#label=
+#instance=0
+interval=5
+
+#[memory]
+#label=
+#instance=swap;total
+#interval=30
+
+#[display]
+#label=
+#interval=5
+
+# Part 4
+#[feed]
+#instance=http://goo.gl/bR2hcp
+#label=
+#interval=60
+
+#[firewall]
+#label=
+#interval=10
+
+#[ip-address]
+#label=
+#interval=60
+
+# Part 5
+
+#[keystate]
+#label=
+#instance=caps
+#interval=1
+#
+#[keystate]
+#label=
+#instance=num
+#interval=1
+
+#[launcher]
+#label=
+#interval=once
+
+
+# Part 6
+
+[locale]
+label=
+interval=once
+
+#[mail]
+#label=
+#instance=~/.gmx-private
+#interval=60
+
+
+# Part 7
+
+#[microphone]
+#label=
+#interval=5
+
+#[network]
+#label=
+#instance=enp0s25
+#interval=10
+
+#[network]
+#label=
+#instance=wlp3s0
+#interval=10
+
+#[packages]
+#label=
+#interval=300
+
+# Part 8
+
+#[playerctl]
+#label=
+#instance=rhythmbox
+#interval=5
+
+[process]
+label="process"
+#instance=http
+#label=
+#interval=10
+
+#[space]
+#label=
+#interval=30
+
+#[space]
+#label=
+#instance=/pub
+#interval=30
+
+# Part 9
+
+#[ssid]
+#label=
+#interval=60
+
+# cpu temperature
+#[temperature]
+#instance=Core
+#label=
+#interval=5
+
+#[user]
+#label=
+#interval=once
+
+# Part 10
+
+[vpn]
+label=
+interval=5
+
+[weather]
+#command=~/rice/.scripts/i3weather
+instance=2910831
+interval=60
+
+#[webcam]
+#label=
+#interval=5
+
+# Part 11
+[usb]
+instance=PhotoSmart
+label=
+interval=10
+
+[datetime]
+#label=
+label=
+interval=5
+
+#[trash]
+#label=
+#interval=10
+
+#[cmus]
+#command=~/.config/i3blocks/scripts/scroll $BLOCK_NAME
+#label=
+#markup=pango
+#interval=repeat
+
+# Part 12
+
+[window]
+command=~/.config/i3blocks/scripts/scroll $BLOCK_NAME
+label=
+markup=pango
+interval=repeat
+
+#[keymap]
+#label=
+#interval=10

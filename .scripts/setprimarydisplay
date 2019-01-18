@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# set primary display for the first connected device
+
+screens=$(xrandr -q | grep ' connected' | cut -d " " -f 1)
+# simple if having one screen
+[ $(echo "$screens" | wc -l) -eq 1 ] && xrandr --output $screens --primary && exit
+
+for s in 0 1 2; do
+    screen=$(echo "$screens" | grep $s) && screen=$(echo "$screen" | head -1) && xrandr --output $screen --primary && exit
+done
+

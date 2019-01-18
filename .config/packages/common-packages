@@ -1,0 +1,85 @@
+# arch linux common packages
+
+networkmanager networkmanager-vpnc sudo vim intel-ucode
+xorg-server nvidia xf86-video-intel
+xorg-xinit xorg-xinput xorg-xev
+i3-gaps rxvt-unicode urxvt-perls i3blocks i3lock xssstate # i3lock
+ranger zathura zathura-cb zathura-pdf-mupdf w3m imlib2 tmux feh # ranger preview etc
+#fonts-arphic-ukai fonts-arphic-uming fonts-font-awesome # Chinese font
+qutebrowser noto-fonts firefox arch-firefox-search
+shadowsocks-libev proxychains-ng # sniproxy # GFW
+wqy-microhei wqy-zenhei
+openssh
+mpv mpd mpc ncmpcpp # video music player
+python-pywal # wal color theme from wallpaper
+pulseaudio pulsemixer # audio
+ibus-rime ibus-libpinyin # IME
+calcurse neomutt offlineimap msmtp fdm dialog mupdf notmuch
+wget aria2  unzip # web tools
+imagemagick rofi
+keepassxc # console and ui password manager, work with KeePass database
+ydcv sdcv  # console dictionary, requires additional dictionary files
+compton  # display compsition tool, not required
+base-devel git # compliers, AUR
+scrot # screenshot
+jre10-openjdk-headless gvfs python2-notify  # Nutstore dependency
+sysstat # system monitor
+exfat-utils # exfat support
+mtpfs # android fs
+poppler # pdf preview in ranger
+libnotify dunst # desktop notification
+nm-connection-editor # NetworkManager GUI
+xorg-xprop # xprop
+dmenu clipmenu
+nfs-utils
+xorg-xdpyinfo
+unclutter
+youtube-dl
+htop
+projectm-pulseaudio
+xdotool
+stfl
+asciidoc
+rust
+smartmontools
+enca
+v4l-utils
+rsync
+network-manager-applet
+gconf
+cronie
+python-pip
+python2-pip
+udiskie
+xorg-xkill
+jq  # console jquery
+hq  # console html parser
+iptraf-ng
+iftop
+ncdu
+multitail   # multiple tail
+ngrep   # sniffer with grep like syntax
+dstat
+lftp
+xclip
+libvncserver freerdp remmina # remove desktop
+maim # screenshot replacement for scrot
+gimp
+broadcom-wl-dkms linux-headers # broadcom 4360 wireless driver, for Mac wifi cards
+lsof
+bluez-utils
+bluez-utils ell
+bluez
+gvim
+acpi bc
+adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts wqy-microhei wqy-zenhei
+thermald
+bind-tools
+bind-tools
+bind-tools
+xautolock
+arandr
+atool # enable ranger archive preview
+mediainfo
+blueman
+unrar
