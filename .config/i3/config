@@ -21,7 +21,7 @@ hide_edge_borders both
 default_border pixel 3
 
 gaps inner 0
-gaps outer 1
+gaps outer 0
 
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
@@ -70,10 +70,11 @@ exec --no-startup-id setprimarydisplay
 exec systemctl --user start dropbox@jae
 
 # Start IME
-exec --no-startup-id ibus-daemon -d -x
+#exec --no-startup-id ibus-daemon -d -x
+exec fcitx
 
 # Start SS session
-exec --no-startup-id ss-local -c ~/.config/ss/ss.json
+exec systemctl --user start ss-client@jae
 
 # Starts dunst for notifications:
 exec --no-startup-id dunst
@@ -148,7 +149,8 @@ bar {
     colors {
             background $darkblack
             statusline $darkwhite
-            separator $cyan
+            #separator $cyan
+            separator $blue
             focused_workspace  $blue $darkblue $darkblack
             active_workspace   $blue $blue $darkwhite
             inactive_workspace $darkblack $darkblack $white
@@ -159,6 +161,8 @@ bar {
     mode dock
     modifier None
     tray_output primary
+    separator_symbol 
+    #separator_symbol 
 }
 
 #bar {

@@ -1,9 +1,16 @@
 #!/bin/bash
 # Source: http://www.onlamp.com/pub/a/linux/2000/11/16/LinuxAdmin.html
 
+[ "$BLOCK_BUTTON" = "1" ] && setsid $TERMINAL -e popbandwith
+
 INSTANCE="${BLOCK_INSTANCE}"
 # If you don't like you can use any other IP
-INTERFACE="$(ip route get 8.8.8.8 | grep -Po '(?<=(dev )).*(?= src)')"
+#CONNECTED_INTERFACE="$(ip -o a | grep "inet " | grep -v ": lo" | awk '{print $2}')"
+#INTERFACE="$(ip route get 8.8.8.8 | grep -Po '(?<=(dev )).*(?= src)')"
+INTERFACE="$(ip route get 114.114.114.114 | grep -Po '(?<=(dev )).*(?= src)')"
+
+ICON_DOWN=""
+ICON_UP=""
 
 if [[ "${INSTANCE}" = "" ]]; then
   INSTANCE="${INTERFACE};both"
@@ -67,19 +74,19 @@ if [[ "${PREV_IN}" != "" ]] && [[ "${PREV_OUT}" != "" ]]; then
   USAGE_OUT=$(FormatNumber "${DIFF_OUT}")
 
   if [[ "${DISPLAY}" = "both" ]]; then
-    echo "${USAGE_IN} : ${USAGE_OUT}"
-    echo "${USAGE_IN} : ${USAGE_OUT}"
+    echo "${ICON_DOWN} ${USAGE_IN} - ${ICON_UP} ${USAGE_OUT}"
+    echo "${ICON_DOWN} ${USAGE_IN} - ${ICON_UP} ${USAGE_OUT}"
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_IN))
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_OUT))
   elif [[ "${DISPLAY}" = "in" ]]; then
-    echo "${USAGE_IN}"
-    echo "${USAGE_IN}"
+    echo "${ICON_DOWN} ${USAGE_IN}"
+    echo "${ICON_DOWN} ${USAGE_IN}"
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_IN))
   elif [[ "${DISPLAY}" = "out" ]]; then
-    echo "${USAGE_OUT}"
-    echo "${USAGE_OUT}"
+    echo "${ICON_UP} ${USAGE_OUT}"
+    echo "${ICON_UP} ${USAGE_OUT}"
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_OUT))
   fi

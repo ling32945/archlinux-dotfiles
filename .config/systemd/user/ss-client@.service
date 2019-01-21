@@ -1,0 +1,13 @@
+[Unit]
+Description=Shadowsocks Client. This service starts up the shadowsocks client daemon.
+After=network.target syslog.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/ss-local -c "/home/%i/.config/ss/ha.json"
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
