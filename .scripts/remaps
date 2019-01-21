@@ -6,16 +6,19 @@
 #xset r rate 300 50
 
 case $HW in
-    vbox-mbp)
-        echo "VirtualBox in Macbook Pro"
-        # set the Apple keyboard
+    x230)
+        echo "ThinkPad X230 i3 remaps"
         setxkbmap  -option ""
         #setxkbmap  -option "altwin:swap_lalt_lwin"
+        setxkbmap  -option "caps:ctrl_modifier" -option "altwin:swap_lalt_lwin"
+        #setxkbmap  -option "terminate:ctrl_alt_bksp" -option "caps:ctrl_modifier"
+        # Map the menu button to right super as well.
+        xmodmap -e 'keycode 135 = Super_R'
         # Caps pressed only once, treat it as escape.
-        #killall xcape ; xcape -e 'Control_R=Escape'
+        killall xcape ; xcape -e 'Caps_Lock=Escape'
         ;;
     mbp)
-        echo "Macbook Pro"
+        echo "Macbook Pro i3 remaps"
         # set the Apple keyboard
         setxkbmap  -option ""
         #setxkbmap  -option "altwin:swap_lalt_lwin"
@@ -25,7 +28,7 @@ case $HW in
         killall xcape ; xcape -e 'Caps_Lock=Escape'
         ;;
     x220|t520)
-        echo "ThinkPad X220|t520"
+        echo "ThinkPad X220|T520 i3 remaps"
         setxkbmap  -option ""
         #setxkbmap  -option "altwin:swap_lalt_lwin"
         setxkbmap  -option "caps:ctrl_modifier" -option "altwin:swap_lalt_lwin"
@@ -36,7 +39,7 @@ case $HW in
         killall xcape ; xcape -e 'Caps_Lock=Escape'
         ;;
     general|*)
-        echo "VirtualBox in Macbook Pro"
+        echo "Default i3 remaps"
         #keycode 135 = Super_R NoSymbol Super_R
         ;;
 esac

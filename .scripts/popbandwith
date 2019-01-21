@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#CONNECTED_INTERFACE="$(ip -o a | grep "inet " | grep -v ": lo" | awk '{print $2}')sss"
+CONNECTED_INTERFACE="$(ip -o a | grep "inet " | grep -v ": lo" | awk '{print $2}' | sed 'N;s/\n/, /' )"
+echo "Connected networt interface: $CONNECTED_INTERFACE"
+
+INTERFACE="$(ip route get 114.114.114.114 | grep -Po '(?<=(dev )).*(?= src)')"
+echo "Activated networt interface: $INTERFACE"
+echo
+echo "Bandwith of $INTERFACE:"
+echo
+
+sudo iftop -i $INTERFACE
+
+read -r
+

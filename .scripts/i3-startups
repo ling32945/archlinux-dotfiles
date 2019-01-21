@@ -3,12 +3,12 @@
 # i3 startups for Virtualbox on Macbook Pro
 
 case $HW in
-    vbox-mbp)
-        echo "VirtualBox in Macbook Pro"
-        VBoxClient-all
+    x230)
+        echo "ThinkPad X230 i3 startups"
+        compton &
         ;;
     mbp)
-        echo "Macbook Pro"
+        echo "Macbook Pro i3 startups"
         # set internal monitor resolution
         xrandr --dpi 112 --output LVDS1
         xrdb -merge ~/Code/idf/.xresources-mbp-2012
@@ -16,12 +16,12 @@ case $HW in
         compton &
         ;;
     x220|t520)
-        echo "ThinkPad X220"
+        echo "ThinkPad X220|T520 i3 startups"
         # Compsite manager
         compton &
         ;;
     general|*)
-        echo "VirtualBox in Macbook Pro"
+        echo "Default i3 startips"
         # Compsite manager
         compton &
         ;;

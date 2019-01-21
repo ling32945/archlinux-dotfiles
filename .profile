@@ -15,9 +15,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_SESSION_DESKTOP="i3"
 export XDG_CURRENT_DESKTOP="i3"
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
 
 [ -f ~/.scripts/shortcuts.sh ] && ~/.scripts/shortcuts.sh
 
@@ -30,7 +30,7 @@ pgrep ssh-agent >/dev/null || eval `ssh-agent`
 #sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
 # check hardware platform
-[ "$(hostname)" == "zagreb" ] && HW='vbox-mbp'
+[ "$(hostname)" == "tobor" ] && HW='x230'
 [ "$(hostname)" == "istanbul" ] && HW='mbp'
 [ "$(hostname)" == "venice" ] && HW='x220'
 [ "$(hostname)" == "jarch" ] && HW='t520'

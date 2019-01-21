@@ -3,8 +3,9 @@
 # i3 screen brightness
 
 case $HW in
-    vbox-mbp)
-        #echo "VirtualBox in Macbook Pro"
+    x230)
+        actual=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
+        max=$(cat /sys/class/backlight/intel_backlight/max_brightness)
         ;;
     mbp)
         # set internal monitor resolution

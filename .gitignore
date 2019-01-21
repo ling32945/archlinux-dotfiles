@@ -1,5 +1,6 @@
 .config/certificates/
 .config/mpd/log
+.config/systemd/user/multi-user.target.wants
 
 
 .config/fontconfig/
