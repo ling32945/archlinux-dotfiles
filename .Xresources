@@ -111,3 +111,8 @@ rofi.opacity:		"10"
 rofi.hide-scrollbar:	true
 rofi.width:		30
 *TkTheme: clam
+
+! wps color
+wpp*foreground: #000000
+wps*foreground: #000000
+et*foreground: #000000
