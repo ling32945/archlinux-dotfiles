@@ -49,9 +49,9 @@ case $1 in
         i3-msg workspace "$(get_ws 2)"
         ws=$(current_ws)
         output=$(current_output $ws)
-        instances=$(get_instances $output $ws $CORPBROWSER)
+        instances=$(get_instances $output $ws $TRUEBROWSER)
         if [ -z $instances ]; then
-            $CORPBROWSER &
+            $TRUEBROWSER &
         fi
         ;;
     firefox)
@@ -61,7 +61,7 @@ case $1 in
         output=$(current_output $ws)
         instances=$(get_instances $output $ws 'Navigator')
         if [ -z $instances ]; then
-            $TRUEBROWSER &
+            $CORPBROWSER &
         fi
         ;;
     neomutt)
@@ -94,6 +94,36 @@ case $1 in
 #            $TRUEBROWSER &
 #        fi
 #        ;;
+    electronic-wechat)
+        # shortcut Mod4-6
+        i3-msg workspace "$(get_ws 6)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws 'electronic-wechat')
+        if [ -z $instances ]; then
+            electronic-wechat &
+        fi
+        ;;
+    keeweb)
+        # shortcut Mod4-7
+        i3-msg workspace "$(get_ws 7)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws 'keeweb')
+        if [ -z $instances ]; then
+            keeweb &
+        fi
+        ;;
+    netease-cloud-music)
+        # shortcut Mod4-8
+        i3-msg workspace "$(get_ws 8)"
+        ws=$(current_ws)
+        output=$(current_output $ws)
+        instances=$(get_instances $output $ws 'netease-cloud-music')
+        if [ -z $instances ]; then
+            netease-cloud-music &
+        fi
+        ;;
     *)
         ;;
 esac

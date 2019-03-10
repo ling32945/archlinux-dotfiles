@@ -97,13 +97,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -lh'
-alias la='ls -al --color=auto'
-alias l='ls -CF'
-alias rm='rm -i'
-alias mv='mv -i'
-alias ssh='TERM=rxvt-256color ssh'
+# load common alias
+if [ -f ${HOME}/.common/.common_alias ]; then
+    source ${HOME}/.common/.common_alias
+fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -161,52 +158,12 @@ fi
 
 export GPG_TTY=$(tty)
 
-# System Maintainence
-alias mw="~/.config/mutt/mutt-wizard.sh"
-#alias muttwizard="~/.config/mutt/mutt-wizard.sh"
-#alias sdn="sudo shutdown now"
-#alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
-
-# Some aliases
-alias p="sudo pacman"
-alias SS="sudo systemctl"
-alias v="vim"
-alias sv="sudo vim"
-alias r="ranger"
-alias sr="sudo ranger"
-alias ka="killall"
-alias g="git"
-#alias trem="transmission-remote"
-alias mkd="mkdir -pv"
-alias ref="shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
-alias bw="wal -i ~/.config/wall.png" # Rerun pywal
-#alias pi="bash ~/.larbs/wizard/wizard.sh"
-
-# Adding color
-alias ls='ls -hN --color=auto --group-directories-first'
-alias grep="grep --color=auto" # Color grep - highlight desired sequence.
-alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
-
-# Internet
-alias yt="youtube-dl --add-metadata -ic" # Download video link
-alias yta="yt -x -f bestaudio/best" # Download only audio
-alias YT="youtube-viewer"
-alias ethspeed="speedometer -r enp0s25"
-alias wifispeed="speedometer -r wlp3s0"
-#alias starwars="telnet towel.blinkenlights.nl"
-
-# TeX
-#alias Txa="cp ~/Documents/LaTeX/article.tex"
-#alias Txs="cp ~/Documents/LaTeX/beamer.tex"
-#alias Txh="cp ~/Documents/LaTeX/handout.tex"
 
 # dmenu
 # Import the colors.
 . "${HOME}/.cache/wal/colors.sh"
 alias dmenu='dmenu_run -nb "$color0" -nf "$color7" -sb "$color4" -sf "$color0" -fn "Hack:11"'
 
-# Create the alias.
-source ~/.shortcuts
 
 #shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 
@@ -225,4 +182,5 @@ export NVM_DIR="$HOME/.nvm"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. ~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+. /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+source ~/.shortcuts

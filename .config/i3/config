@@ -59,15 +59,20 @@ exec $term
 
 # set primary monitor
 exec --no-startup-id setprimarydisplay
+#exec --no-startup-id setdisplay
 
 # set two monitors
 #exec xrandr --output LVDS-1 --primary --mode 1600x900 --pos 0x1020 --rotate normal --output VGA-1 --mode 1920x1080 --pos 1600x0 --rotate left
+#exec xrandr --output LVDS1 --primary --mode 1366x768 --pos 0x312 --rotate normal --output HDMI1 --mode 1920x1080 --pos 1366x0 --rotate normal
+exec xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS1 --primary --mode 1366x768 --pos 256x1080 --rotate normal
+#exec sh ~/.screenlayout/hdmi-1080-tv-and-laptop.sh
 
 # Start Nutstore
 #exec --no-startup-id nutstore-daemon
 
 # Start Dropbox
-exec systemctl --user start dropbox@jae
+#exec systemctl --user start dropbox@jae
+exec /usr/bin/env "/home/jae/.dropbox-dist/dropboxd"
 
 # Start IME
 #exec --no-startup-id ibus-daemon -d -x
@@ -198,8 +203,7 @@ bindsym $mod+q          [con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd)
 bindsym $mod+Shift+q    exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
 #bindsym $mod+w          exec --no-startup-id $TRUEBROWSER
-#bindsym $mod+w          exec --no-startup-id i3-keyboard-shortcuts $TRUEBROWSER
-bindsym $mod+w          exec --no-startup-id i3-keyboard-shortcuts $CORPBROWSER
+bindsym $mod+w          exec --no-startup-id i3-keyboard-shortcuts $TRUEBROWSER
 bindsym $mod+Shift+w    exec --no-startup-id $TRUEBROWSER
 
 #bindsym $mod+e          exec $term -e neomutt -F .config/mutt/muttrc
@@ -210,20 +214,20 @@ bindsym $mod+r          exec --no-startup-id i3-keyboard-shortcuts ranger
 #bindsym $mod+Shift+r    exec $term -e sudo ranger /
 bindsym $mod+Shift+r    exec $term -e ranger
 
-bindsym $mod+t          split toggle
+bindsym $mod+t          exec --no-startup-id i3-keyboard-shortcuts electronic-wechat
 #bindsym $mod+Shift+t    gaps inner current set 5; gaps outer current set 5
 
 bindsym $mod+y          exec $term -e calcurse
 bindsym $mod+Shift+y    exec --no-startup-id "bash ~/.scripts/i3resize left"
 
 #bindsym $mod+u          exec --no-startup-id ddspawn tmuxdd
-bindsym $mod+u          exec --no-startup-id i3-keyboard-shortcuts $TRUEBROWSER
+bindsym $mod+u          exec --no-startup-id i3-keyboard-shortcuts $CORPBROWSER
 bindsym $mod+Shift+u    exec --no-startup-id "bash ~/.scripts/i3resize down"
 
 bindsym $mod+i          exec $term -e htop
 bindsym $mod+Shift+i    exec --no-startup-id "bash ~/.scripts/i3resize up"
 
-bindsym $mod+o          sticky toggle
+bindsym $mod+o          exec --no-startup-id i3-keyboard-shortcuts keeweb
 bindsym $mod+Shift+o    exec --no-startup-id "bash ~/.scripts/i3resize right"
 
 bindsym $mod+p          exec --no-startup-id lmc toggle
@@ -280,7 +284,8 @@ bindsym $mod+Shift+b    floating toggle; sticky toggle; exec --no-startup-id bot
 bindsym $mod+n          exec $term -e newspod
 bindsym $mod+Shift+n    exec --no-startup-id linkhandler
 
-bindsym $mod+m          exec --no-startup-id $term -e ncmpcpp
+#bindsym $mod+m          exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+m          exec --no-startup-id i3-keyboard-shortcuts netease-cloud-music
 bindsym $mod+Shift+m    exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
