@@ -61,7 +61,7 @@ exec $term
 exec --no-startup-id setprimarydisplay
 
 # set two monitors
-#exec xrandr --output LVDS-1 --primary --mode 1600x900 --pos 0x1020 --rotate normal --output VGA-1 --mode 1920x1080 --pos 1600x0 --rotate left
+exec xrandr --output LVDS-1 --primary --mode 1600x900 --pos 1920x180 --rotate normal --output VGA-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 # Start Nutstore
 #exec --no-startup-id nutstore-daemon
@@ -71,7 +71,8 @@ exec systemctl --user start dropbox@jae
 
 # Start IME
 #exec --no-startup-id ibus-daemon -d -x
-exec fcitx
+#exec fcitx
+exec launch-input-method
 
 # Start SS session
 exec systemctl --user start ss-client@jae
