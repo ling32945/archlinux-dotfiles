@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This script launch input method by diffrent machine
+
+if [ "$HW" == "jarch" ]; then
+    ibus-daemon -d -x
+elif [ "$HW" == "tobor" ]; then
+    fcitx
+fi
