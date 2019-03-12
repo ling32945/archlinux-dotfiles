@@ -5,12 +5,12 @@ After=network.target syslog.target
 [Service]
 Type=simple
 
-Environment=DISPLAY=:0
 #Environment=LC_ALL=en_US.UTF-8
 #Environment=LANG=en_US.UTF-8
-ExecStart=/usr/bin/env "/home/jae/.dropbox-dist/dropboxd"
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/env "/home/%i/.dropbox-dist/dropboxd"
 ExecStop=/usr/bin/killall /home/jae/.dropbox-dist/dropboxd
-#Restart=on-eailure
+#Restart=on-failure
 #RestartSec=1
 #User=%i
 #Group=%i

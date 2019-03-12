@@ -11,5 +11,3 @@ fi
 # load bashrc
 [ -f ~/.bashrc ] && source ~/.bashrc
 
-
-
