@@ -22,10 +22,11 @@ if [[ "$TERM" != 'linux' ]]; then
     #ZSH_THEME="wedisagree"
     #ZSH_THEME="powerline"
     ZSH_THEME="powerlevel9k/powerlevel9k"
+
+    # Powerlevel9k setting
+    POWERLEVEL9K_MODE='nerdfont-complete'
 fi
 
-# Powerlevel9k setting
-POWERLEVEL9K_MODE='nerdfont-complete'
 
 case "$TERM" in
   'xterm') TERM=xterm-256color;;
@@ -241,3 +242,6 @@ alias dmenu='dmenu_run -nb "$color0" -nf "$color7" -sb "$color4" -sf "$color0" -
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
 (cat ~/.cache/wal/sequences &)
+
+# dircolors configuration
+eval `dircolors ~/.config/.dir_colors`
