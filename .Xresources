@@ -41,7 +41,7 @@ URxvt*transparent:      true
 URxvt*shading:          40
 
 URxvt*intensityStyles:	false
-URxvt*font: 		xft:Hack:size=10
+!URxvt*font: 		xft:Hack:size=10
 !URxvt*font: 		xft:Unifont:size=11
 !URxvt*font: 		xft:Inconsolata:size=11
 !URxvt*font: 		xft:FontAwesom:size=11
@@ -49,7 +49,22 @@ URxvt*scrollBar:	false
 URxvt*cursorColor:	white
 
 !URxvt*font        : xft:Droid\ Sans\ Mono\ For\ Powerline:regular:size=13 ,xft:WenQuanYi Micro Hei Mono:regular:size=13:minspace=true
+!URxvt*font:                 xft:Inconsolata Nerd Font Mono:pixelsize=18:minspace=False, xft:DejaVu Sans Mono Nerd Font:pixelsize=16, xft:Inconsolata LGC:pixelsize=16
+!URxvt*boldFont:             xft:Inconsolata Nerd Font Mono:pixelsize=18:minspace=False, xft:DejaVu Sans Mono Nerd Font:pixelsize=16, xft:Inconsolata LGC:pixelsize=16
+!URxvt*letterSpace: 0
 
+!#define font1         Inconsolata Nerd Font Mono
+!#define font2         DejaVu Sans Mono Nerd Font
+#define font1         DejaVu Sans Mono Nerd Font
+#define font2         Inconsolata Nerd Font Mono
+#define font3         Inconsolata LGC
+#define font4         Noto Sans Mono CJK JP
+
+URxvt*letterSpace:    0
+URxvt*font:           xft:font1:pixelsize=18, xft:font2:pixelsize=18:minspace=false, xft:font3:pixelsize=18,xft:font4:pixelsize=18
+URxvt*boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18,xft:font4:pixelsize=18
+URxvt*italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18,xft:font4:pixelsize=18
+URxvt*boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False, xft:font3:pixelsize=18, xft:font4:pixelsize=18
 
 !URxvt.inheritPixmap: true
 !URxvt.transparent: true
