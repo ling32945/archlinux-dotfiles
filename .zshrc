@@ -25,7 +25,7 @@ if [[ "$TERM" != 'linux' ]]; then
 fi
 
 # Powerlevel9k setting
-#POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 case "$TERM" in
   'xterm') TERM=xterm-256color;;
