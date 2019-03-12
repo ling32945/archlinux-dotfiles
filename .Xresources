@@ -56,9 +56,9 @@ URxvt*cursorColor:	white
 !! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
 !URxvt.shading: 110
 
-URxvt*inputMethod:  ibus
-!URxvt*preeditType:  pt
-URxvt*preeditType:  OnTheSpot
+URxvt*inputMethod: fcitx
+!URxvt*preeditType: pt
+URxvt*preeditType: OnTheSpot
 
 URxvt*saveLines:    81920
 
