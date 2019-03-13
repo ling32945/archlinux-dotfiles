@@ -2,8 +2,8 @@
 
 # This script launch input method by diffrent machine
 
-if [ "$HW" == "jarch" ]; then
+if [[ "$HW"x == "t520"x ]]; then
     ibus-daemon -d -x
-elif [ "$HW" == "tobor" ]; then
+elif [[ "$HW" == "x230" ]]; then
     fcitx
 fi

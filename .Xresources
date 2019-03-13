@@ -59,12 +59,13 @@ URxvt*cursorColor:	white
 #define font2         Inconsolata Nerd Font Mono
 #define font3         Inconsolata LGC
 #define font4         Noto Sans Mono CJK JP
+#define font5         WenQuanYi Micro Hei Mono
 
 URxvt*letterSpace:    0
-URxvt*font:           xft:font1:pixelsize=18, xft:font2:pixelsize=18:minspace=false, xft:font3:pixelsize=18,xft:font4:pixelsize=18
-URxvt*boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18,xft:font4:pixelsize=18
-URxvt*italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18,xft:font4:pixelsize=18
-URxvt*boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False, xft:font3:pixelsize=18, xft:font4:pixelsize=18
+URxvt*font:           xft:font1:pixelsize=18, xft:font2:pixelsize=18:minspace=false, xft:font3:pixelsize=18, xft:font4:pixelsize=18, xft:font5:pixelsize=18:minspace=false
+URxvt*boldFont:       xft:font1:bold:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18, xft:font4:pixelsize=18, xft:font5:pixelsize=18:minspace=false
+URxvt*italicFont:     xft:font1:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False,xft:font3:pixelsize=18, xft:font4:pixelsize=18, xft:font5:pixelsize=18:minspace=false
+URxvt*boldItalicFont: xft:font1:bold:italic:pixelsize=18, xft:font2:pixelsize=18:minspace=False, xft:font3:pixelsize=18, xft:font4:pixelsize=18, xft:font5:pixelsize=18:minspace=false
 
 !URxvt.inheritPixmap: true
 !URxvt.transparent: true

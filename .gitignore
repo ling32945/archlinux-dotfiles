@@ -12,14 +12,9 @@
 .config/mpv/
 .config/ncmpcpp/
 .config/qutebrowser/
-.config/ranger/
 .config/ss/
 .config/startpage/
-.config/user-dirs.dirs
-.config/user-dirs.locale
 .config/wall.png
 .config/yad.conf
-.config/zathura/
 .gtkrc-2.0
 .local/share/fonts/
-

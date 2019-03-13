@@ -4,7 +4,7 @@
 ## Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #font pango:Hack 8
-font pango:Font Awesome 5 Brands-Regular-400 8
+font pango: DejaVu Sans Mono 12, Font Awesome 5 Brands-Regular-400 8
 
 ################################################################################
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
@@ -147,7 +147,8 @@ bar {
 #    font pango:Awesome 5 Free 10
 #    font pango:Apple Color Emoji 10
 
-    font pango:Segeo UI 9
+    #font pango:Segeo UI 9
+    font pango:DejaVu Sans Mono 12, FontAwesome 8
     colors {
             background $darkblack
             statusline $darkwhite

@@ -1,5 +1,12 @@
 # ${HOME}/.common_profile
 
+# check hardware platform
+[[ "$(hostname)" == "tobor" ]] && HW='x230'
+[[ "$(hostname)" == "istanbul" ]] && HW='mbp'
+[[ "$(hostname)" == "venice" ]] && HW='x220'
+[[ "$(hostname)" == "jarch" ]] && HW='t520'
+
+export HW
 export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 export EDITOR="vim"
 #export TERMINAL="st"
@@ -13,17 +20,16 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_SESSION_DESKTOP="i3"
 export XDG_CURRENT_DESKTOP="i3"
 
-export GTK_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export QT_IM_MODULE=fcitx
+if [[ "${HW}"x == "x230"x ]]; then
+    export GTK_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+    export QT_IM_MODULE=fcitx
+else
 
-
-# check hardware platform
-[[ "$(hostname)" == "tobor" ]] && HW='x230'
-[[ "$(hostname)" == "istanbul" ]] && HW='mbp'
-[[ "$(hostname)" == "venice" ]] && HW='x220'
-[[ "$(hostname)" == "jarch" ]] && HW='t520'
-export HW
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+fi
 
 # change FN mode in Mac to Fn by default
 #lsmod | grep applesmc -q && echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
