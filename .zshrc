@@ -35,14 +35,6 @@ case "$TERM" in
   'Eterm') TERM=Eterm-256color;;
 esac
 
-# locale
-export LANG="zh_CN.UTF-8"
-ENCODING="$LANG"
-export LC_ALL=$ENCODING
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin/core_perl:/usr/lib/ccache/bin/:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
-export PAGER="less"
-export ARCHFLAGS="arch x86_64"
-
 setopt appendhistory autocd extendedglob nomatch
 setopt IGNORE_EOF
 setopt CORRECT_ALL

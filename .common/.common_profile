@@ -31,6 +31,27 @@ else
     export QT_IM_MODULE=ibus
 fi
 
+# locale
+export LANG="zh_CN.UTF-8"
+ENCODING="$LANG"
+export LC_ALL=$ENCODING
+#export LC_MESSAGES=$ENCODING
+#export LC_COLLATE=$ENCODING
+#export LC_CTYPE=$ENCODING
+#export LC_TIME=$ENCODING
+#export LC_NUMERIC=$ENCODING
+#export LC_MONETARY=$ENCODING
+#export LC_PAPER=$ENCODING
+#export LC_NAME=$ENCODING
+#export LC_ADDRESS=$ENCODING
+#export LC_TELEPHONE=$ENCODING
+#export LC_MEASUREMENT=$ENCODING
+#export LC_IDENTIFICATION=$ENCODING
+
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin/core_perl:/usr/lib/ccache/bin/:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export PAGER="less"
+export ARCHFLAGS="arch x86_64"
+
 # change FN mode in Mac to Fn by default
 #lsmod | grep applesmc -q && echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
 [[ "$HW" == "mpb" ]] &&  sudo tee /sys/module/hid_apple/parameters/fnmode

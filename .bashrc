@@ -126,26 +126,6 @@ fi
 
 [ -z "${PATH##*/sbin*}" ] || PATH=$PATH:/sbin:/usr/sbin
 
-# locale
-
-export LANG="zh_CN.UTF-8"
-#ENCODING="en_US"
-ENCODING="$LANG"
-export LC_ALL=$ENCODING
-#export LC_MESSAGES=$ENCODING
-#export LC_COLLATE=$ENCODING
-#export LC_CTYPE=$ENCODING
-#export LC_TIME=$ENCODING
-#export LC_NUMERIC=$ENCODING
-#export LC_MONETARY=$ENCODING
-#export LC_PAPER=$ENCODING
-#export LC_NAME=$ENCODING
-#export LC_ADDRESS=$ENCODING
-#export LC_TELEPHONE=$ENCODING
-#export LC_MEASUREMENT=$ENCODING
-#export LC_IDENTIFICATION=$ENCODING
-
-
 stty -ixon # Disable ctrl-s and ctrl-q.
 shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 HISTSIZE= HISTFILESIZE= # Infinite history.
