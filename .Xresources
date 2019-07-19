@@ -83,7 +83,7 @@ URxvt*saveLines:    81920
 !URxvt.perl-lib:         ~/.config/urxvt/ext/
 !URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
 !URxvt.perl-ext-common:	default,matcher,font-size,url-select,keyboard-select,clipboard
-URxvt.perl-ext-common:	default,matcher,font-size,url-select,keyboard-select,selection-to-clipboard
+URxvt.perl-ext-common:	default,matcher,font-size,url-select,keyboard-select,selection-to-clipboard,tabbed
 URxvt.colorUL:		    #4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
@@ -113,6 +113,27 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 !URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 !! If true, PRIMARY overwrites clipboard
 URxvt.clipboard.autocopy: false
+
+!! Tabbed
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.active-fg: 1
+URxvt.tabbed.actives-fg: 5
+URxvt.tabbed.actived-fg: 4
+URxvt.tabbed.tab-numbers: false
+!Shift+ ↓ new tab
+!Shift+ ← go to left tab
+!Shift+ → go to right tab
+!Ctrl+ ← move tab to the left
+!Ctrl+ → move tab to the right
+!Ctrl+D: close tab
+URxvt.tabbed.tabcmds.1: N|shell
+URxvt.tabbed.tabcmds.2: P|prod|ssh prod.idm
+URxvt.tabbed.tabcmds.3: M|mc|mc
+
+URxvt.tabbed.session: N|P|M
 
 rofi.color-enabled:	true
 rofi.color-window:	#000, #000, #000
