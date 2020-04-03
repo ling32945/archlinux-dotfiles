@@ -3,7 +3,6 @@
 .config/systemd/user/multi-user.target.wants
 
 
-.config/fontconfig/
 .config/gtk-3.0/
 .config/i3/config.bak
 .config/i3/i3_guide.pdf
